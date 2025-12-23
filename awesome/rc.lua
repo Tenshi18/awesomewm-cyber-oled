@@ -647,7 +647,7 @@ awful.spawn.with_shell("setxkbmap -layout us,ru -option grp:alt_shift_toggle")
 awful.spawn.with_shell("picom --config ~/.config/picom.conf")
 
 -- GNOME polkit
-awful.spawn.with_shell("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
+awful.spawn.with_shell("/usr/lib/polkit-1/polkit-agent-helper-1")
 
 -- conky
 awful.spawn.with_shell("conky -c ~/.config/conky/conkyrc_clock &")
