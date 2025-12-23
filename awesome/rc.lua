@@ -27,10 +27,14 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 -- batteryarc-widget
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 
--- pactl-widget
-local volume_widget = require('awesome-wm-widgets.pactl-widget.volume')
+-- wpctl-widget (for PipeWire)
+local volume_widget = require('awesome-wm-widgets.wpctl-widget.volume')
+
 
 -- end streetturtle widgets "requires"
+
+-- Widget instances (needed for hotkeys)
+local volume_widget_instance
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -192,6 +196,10 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+-- Create widget instances (before screen loop so they can be reused)
+-- IMPORTANT: Widgets must be created before globalkeys definition so methods are available
+volume_widget_instance = volume_widget{ widget_type = 'arc', device = '@DEFAULT_AUDIO_SINK@' }
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -242,7 +250,7 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             batteryarc_widget({show_current_level = true}),
-            volume_widget{ widget_type = 'arc' },
+            volume_widget_instance,
             mytextclock,
             s.mylayoutbox,
         },
@@ -361,9 +369,31 @@ globalkeys = gears.table.join(
 --        {description = "Toggle mute", group = "hotkeys"}),
 
     -- volume widget keybindings
-    awful.key({}, "XF86AudioRaiseVolume", function () volume_widget:inc(5) end),
-    awful.key({}, "XF86AudioLowerVolume", function () volume_widget:dec(5) end),
-    awful.key({}, "XF86AudioMute", function () volume_widget:toggle() end),
+    awful.key({}, "XF86AudioRaiseVolume", function () 
+        -- Use widget method which will update the widget display
+        pcall(function() volume_widget:inc(5) end)
+    end, {description = "Increase volume", group = "hotkeys"}),
+    awful.key({}, "XF86AudioLowerVolume", function () 
+        -- Use widget method which will update the widget display
+        pcall(function() volume_widget:dec(5) end)
+    end, {description = "Decrease volume", group = "hotkeys"}),
+    awful.key({}, "XF86AudioMute", function () 
+        -- Use widget method which will update the widget display
+        pcall(function() volume_widget:toggle() end)
+    end, {description = "Toggle mute", group = "hotkeys"}),
+
+    -- Test: Add a simple test keybinding to verify hotkeys work
+    -- awful.key({ modkey }, "b", function () 
+    --     awful.spawn.with_shell("notify-send 'Test' 'Hotkeys work!'")
+    -- end, {description = "Test hotkeys", group = "hotkeys"}),
+
+    -- brightness widget keybindings
+    awful.key({}, "XF86MonBrightnessUp", function () 
+        awful.spawn("light -s sysfs/backlight/amdgpu_bl0 -A 5")
+    end, {description = "Increase brightness (keysym)", group = "hotkeys"}),
+    awful.key({}, "XF86MonBrightnessDown", function () 
+        awful.spawn("light -s sysfs/backlight/amdgpu_bl0 -U 5")
+    end, {description = "Decrease brightness (keysym)", group = "hotkeys"}),
 
     -- start app keybinds
     -- Note: Update the browser path to match your system (e.g., "firefox", "chromium", etc.)
