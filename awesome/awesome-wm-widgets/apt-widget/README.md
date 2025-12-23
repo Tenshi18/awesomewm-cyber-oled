@@ -1,17 +1,17 @@
 # APT widget
 
-Widget which shows a list of APT packages to be updated:
+This widget shows a list of APT packages to be updated:
 
 ![screenshot](./screenshots/screenshot.gif)
 
 Features:
- - scrollable list !!! (thanks to this [post](https://www.reddit.com/r/awesomewm/comments/isx89x/scrolling_a_layout_fixed_flexed_layout_widget/) of reddit)
+ - scrollable list (thanks to this [post](https://www.reddit.com/r/awesomewm/comments/isx89x/scrolling_a_layout_fixed_flexed_layout_widget/))
  - update single package
  - update multiple packages
 
-## Customizations
+## Customization
 
-It is possible to customize widget by providing a table with the following config parameters:
+It is possible to customize widget by providing a table with all or some of the following config parameters:
 
 | Name | Default | Description |
 |---|---|---|
@@ -20,7 +20,7 @@ It is possible to customize widget by providing a table with the following confi
 
 ## Installation
 
-Clone the repo under ~/.config/awesome/ folder, then in rc.lua add the following:
+Clone/download repo and use widget in **rc.lua**:
 
 ```lua
 local apt_widget = require("awesome-wm-widgets.apt-widget.apt-widget")

@@ -1,10 +1,8 @@
-# WeatherAPI widget
+# WeatherAPI Widget
 
 ![Current Weather popup](./popup.png)
 
-The widget consists of one section:
-
-- current weather, including humidity, wind speed, UV index
+This widget shows current weather, including humidity, wind speed, and UV index.
 
 ## Customization
 
@@ -23,6 +21,7 @@ following config parameters:
 | show_daily_forecast | false | Show forecast for next three days |
 | show_hourly_forecast | false | Show hourly forecast section |
 | timeout | 120 | How often in seconds the widget refreshes |
+| lang | The language of your system from the environment (`LANG` variable) or `en`. Languages currently supported: `de`, `en`, `fr`, `pt`, `ru`. | Widget's language |
 
 In [#461](https://github.com/streetturtle/awesome-wm-widgets/issues/461) it was
 reported that some machines replace the dot with a comma in coordinates. If
@@ -49,6 +48,7 @@ widget's source.
 weather_api_widget({
     api_key='<your-key>',
     coordinates = {45.5017, -73.5673},
+    lang = 'en',
     units = 'imperial',
     font_name = 'Carter One',
     icons = 'VitalyGorbachev',
@@ -102,11 +102,11 @@ weather_api_widget({
                 api_key='<your-key>',
                 coordinates = {45.5017, -73.5673},
             }),
-            ,
             --customized
             weather_api_widget({
                 api_key='<your-key>',
                 coordinates = {45.5017, -73.5673},
+                lang = 'en',
                 units = 'imperial',
                 font_name = 'Carter One',
                 icons = 'VitalyGorbachev',

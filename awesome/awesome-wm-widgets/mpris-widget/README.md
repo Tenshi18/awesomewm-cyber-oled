@@ -1,8 +1,8 @@
 # MPRIS Widget (In progress)
 
-Music Player Info widget cy @mgabs
+Music Player Info widget by @mgabs
 
-# Prerequisite
+## Prerequisites
 
 Install `playerctl` (mpris implementation), should be available in repo, e.g. for Ubuntu:
 

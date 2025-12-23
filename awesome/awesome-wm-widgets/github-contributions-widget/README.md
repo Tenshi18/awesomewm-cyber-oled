@@ -1,6 +1,6 @@
-# Github Contributions Widget
+# GitHub Contributions Widget
 
-The widget is inspired by the https://github-contributions.now.sh/ and relies on it's API. 
+The widget is inspired by https://github-contributions.now.sh/ and relies on its API. 
 
 It shows the contribution graph, similar to the one on the github profile page: ![screenshot](./screenshots/screenshot.jpg)
 
@@ -21,7 +21,7 @@ It is possible to customize the widget by providing a table with all or some of 
 | `margin_top` | 1 | Top margin |
 | `theme` | `standard` | Color theme of the graph, see below |
 
-_Note:_ widget height is 21px (7 rows of 3x3 cells). So it would look nice on the wibar of 22-24px height.
+**Note:** Widget height is 21px (7 rows of 3x3 cells). So it would look nice on a wibar of 22-24px height.
 
 ### Themes
 

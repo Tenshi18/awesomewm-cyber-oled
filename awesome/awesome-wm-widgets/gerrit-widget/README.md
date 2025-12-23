@@ -1,16 +1,16 @@
 # Gerrit widget
 
-It shows number of currently assigned reviews in [Gerrit](https://www.gerritcodereview.com/) to the user (by default) :
+This widget shows the number of currently assigned reviews in [Gerrit](https://www.gerritcodereview.com/) to the user (by default):
  
- ![gerrit_widget](./gerrit_widget.png)
- 
- when clicked it shows reviews in a list:
- 
- ![popup](./popup.png)
- 
- left click on an item will open review in the default browser, right click will copy the review number, which you can use to checkout this review by running `git-review -d <review number>`.
- 
- Also, if a new review is assigned to the user, there will be a pop-up:
+![gerrit_widget](./gerrit_widget.png)
+
+When clicked it shows reviews in a list:
+
+![popup](./popup.png)
+
+Left click on an item will open the review in the default browser, right click will copy the review number, which you can use to checkout this review by running `git-review -d <review number>`.
+
+Also, if a new review is assigned to the user, there will be a popup:
  
  ![new_review](./new_review.png)
 
@@ -25,10 +25,10 @@ It is possible to customize widget by providing a table with all or some of the 
 | `query` | `is:reviewer AND status:open AND NOT is:wip` | Query to retrieve reviews |
 | `timeout` | 10 | How often in seconds the widget refreshes |
 
-## Prerequisite
+## Prerequisites
 
- - [curl](https://curl.haxx.se/) - is used to communicate with gerrit's [REST API](https://gerrit-review.googlesource.com/Documentation/rest-api.html)
- - setup [netrc](https://ec.haxx.se/usingcurl-netrc.html) which is used to store username and password in order to call API's endpoints.
+ - [curl](https://curl.haxx.se/) - used to communicate with Gerrit's [REST API](https://gerrit-review.googlesource.com/Documentation/rest-api.html)
+ - Setup [netrc](https://ec.haxx.se/usingcurl-netrc.html) which is used to store username and password in order to call API endpoints
 
 ## Installation
 

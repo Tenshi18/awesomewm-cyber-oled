@@ -1,6 +1,6 @@
 # Run Shell
 
-Blurs / pixelates background and shows widget with run prompt:
+This widget blurs/pixelates the background and shows a run prompt:
 
 ![screenshot](./blur.png)
 
@@ -8,7 +8,7 @@ Blurs / pixelates background and shows widget with run prompt:
 
 ## Installation
 
-1. To blur / pixelate the background this widget used [ffmpeg](https://www.ffmpeg.org/) and [frei0r](https://frei0r.dyne.org/) plugins (if you want to pixelate the background), which you need to install. Installation of those depends on your distribution, for ffmpeg just follow the installation section of the site, for frei0r I was able to install it by simply running
+1. To blur/pixelate the background, this widget uses [ffmpeg](https://www.ffmpeg.org/) and [frei0r](https://frei0r.dyne.org/) plugins (if you want to pixelate the background), which you need to install. Installation depends on your distribution. For ffmpeg, follow the installation section of the site. For frei0r, you can install it by running:
 
     ```
     sudo apt-get install frei0r-plugins
@@ -31,4 +31,5 @@ Blurs / pixelates background and shows widget with run prompt:
     ```lua
     awful.key({modkey}, "r", function () run_shell.launch() end),
     ```
-:warning: I am not 100% sure but it may (memory) leak. If awesome uses lots of RAM just reload config (Ctrl + Mod4 + r).
+
+**Warning:** This widget may have a memory leak. If awesome uses lots of RAM, reload the config (Ctrl + Mod4 + r).

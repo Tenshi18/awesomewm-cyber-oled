@@ -1,6 +1,6 @@
 # Run Shell
 
-Run prompt which is put inside a widget:
+This widget provides a run prompt inside a widget:
 
 [Demo](https://imgur.com/ohjAuCQ.mp4)
 

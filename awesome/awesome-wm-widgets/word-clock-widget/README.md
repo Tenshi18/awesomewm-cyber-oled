@@ -1,6 +1,6 @@
-# word clock widget
+# Word Clock Widget
 
-Widget displaying current time using words:
+This widget displays the current time using words:
 
 ![screenshot](./screenshots/halfpastthree.png)
 
@@ -19,7 +19,7 @@ It is possible to customize widget by providing a table with all or some of the 
 
 ## Installation
 
-Clone repo, include widget and use it in **rc.lua**:
+Clone/download repo and use widget in **rc.lua**:
 
 ```lua
 local word_clock = require("awesome-wm-widgets.word-clock-widget.word-clock")
@@ -32,7 +32,7 @@ s.mytasklist, -- Middle widget
 	...
 ```
 
-# Screenshots
+### Screenshots
 
 ```lua
  word_clock{
